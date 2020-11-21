@@ -18,4 +18,4 @@ You need to run this script `Node.js` and you can download it from [here](https:
 1. Run the script by typing `npm start`
 1. Finally, Scan the QR Code to connect the browser with Web WhatsApp
 
-Hope you like it. If you do please star ⭐ the repo ❤
+Hope you like it. If you do, Please star ⭐ the repo ❤
