@@ -4,6 +4,12 @@ const readXlsxFile = require('read-excel-file/node');
 
 const names = [];
 
+function delay(time) {
+  return new Promise(function(resolve) { 
+      setTimeout(resolve, time)
+  });
+}
+
 readXlsxFile('./Contacts.xlsx').then((rows) => {
   rows.forEach(el => names.push(el[0]));
   (async () => {
@@ -26,6 +32,7 @@ readXlsxFile('./Contacts.xlsx').then((rows) => {
       const input = await page.$("#main .selectable-text");
       await input.type(message);
       await page.keyboard.press("Enter");
+      await delay(5000);
     });
   
     
