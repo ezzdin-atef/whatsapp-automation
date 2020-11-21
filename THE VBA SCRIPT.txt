@@ -1,0 +1,28 @@
+Private Sub Create_VCF()
+    'Open a File in Specific Path in Output or Append mode
+    Dim FileNum As Integer
+    Dim iRow As Double
+    iRow = 1
+    FileNum = FreeFile
+    OutFilePath = "D:\OutputVCF.VCF"
+    Open OutFilePath For Output As FileNum
+ 
+    'Loop through Excel Sheet each row and write it to VCF File
+    While VBA.Trim(Sheets("Sheet1").Cells(iRow, 1)) <> ""
+        FName = VBA.Trim(Sheets("Sheet1").Cells(iRow, 1))
+        PhNum = VBA.Trim(Sheets("Sheet1").Cells(iRow, 1))
+ 
+        Print #FileNum, "BEGIN:VCARD"
+        Print #FileNum, "VERSION:3.0"
+        Print #FileNum, "N:" & FName & ";;;"
+        Print #FileNum, "FN:" & FName
+        Print #FileNum, "TEL;TYPE=CELL;TYPE=PREF:" & PhNum
+        Print #FileNum, "END:VCARD"
+        iRow = iRow + 1
+    Wend
+ 
+    'Close The File
+    Close #FileNum
+    MsgBox "Contacts Converted to Saved To: " & OutFilePath & " "
+End Sub
+
