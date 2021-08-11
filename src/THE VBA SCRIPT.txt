@@ -8,9 +8,9 @@ Private Sub Create_VCF()
     Open OutFilePath For Output As FileNum
  
     'Loop through Excel Sheet each row and write it to VCF File
-    While VBA.Trim(Sheets("Sheet1").Cells(iRow, 1)) <> ""
-        FName = VBA.Trim(Sheets("Sheet1").Cells(iRow, 1))
-        PhNum = VBA.Trim(Sheets("Sheet1").Cells(iRow, 1))
+    While VBA.Trim(Sheets("Sheet1").Cells(iRow, 3)) <> ""
+        FName = VBA.Trim(Sheets("Sheet1").Cells(iRow, 3))
+        PhNum = VBA.Trim(Sheets("Sheet1").Cells(iRow, 3))
  
         Print #FileNum, "BEGIN:VCARD"
         Print #FileNum, "VERSION:3.0"
